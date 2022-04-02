@@ -1,0 +1,20 @@
+<small class="bg-light p-2 d-flex justify-content-start">App / Product-page /</small>
+
+<div class="container">
+    <h4 class="text-primary">Product page</h4>
+    <div class="row p-2 bg-light mr-3 mb-3">
+            <div class="col-sm-3 mb-4 " *ngFor="let item of products">
+                <div class="card p-3">
+                    <a href="/phones/{{item.id}}">
+                        <img src="{{item.image_url}}" alt="" height="200px" class="card-img-top"></a>
+                    <div class="card-body">
+                       <h5> <a href="">
+                            </a>Samsung hihi</h5>
+                       <p class="card-text">300000</p>
+                       <a href="/phones/{{item.id}}" class="btn btn-info">Buy now</a>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>

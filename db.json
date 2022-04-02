@@ -1,0 +1,36 @@
+{
+    "products":[
+        {
+            "id":1,
+            "name":"iPhone 23",
+            "price":3000000,
+            "desc":"Day la san pham xin xo nhat qua dat",
+            "image_url":"https://cdn.tgdd.vn/Products/Images/42/220833/samsung-galaxy-s21-tim-600x600.jpg",
+            "status":1
+        },
+        {
+            "id":2,
+            "name":"iPhone 13",
+            "price":3000000,
+            "desc":"Day la san pham xin xo nhat qua dat",
+            "image_url":"https://cdn.tgdd.vn/Products/Images/42/234315/samsung-galaxy-a32-4g-thumb-xanh-600x600-200x200.jpg",
+            "status":1
+        },
+        {
+            "id":3,
+            "name":"iPhone 13",
+            "price":3000000,
+            "desc":"Day la san pham xin xo nhat qua dat",
+            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB6r1J48_81LO1UjGkcQWEYjtD_XSMfkm5XK2soF2sNjxNwAAwgRoqpX8q6PuRrGaPdgo&usqp=CAU",
+            "status":1
+        },
+        {
+            "id":4,
+            "name":"iPhone 13",
+            "price":3000000,
+            "desc":"Day la san pham xin xo nhat qua dat",
+            "image_url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB6r1J48_81LO1UjGkcQWEYjtD_XSMfkm5XK2soF2sNjxNwAAwgRoqpX8q6PuRrGaPdgo&usqp=CAU",
+            "status":1
+        }
+    ]
+}
