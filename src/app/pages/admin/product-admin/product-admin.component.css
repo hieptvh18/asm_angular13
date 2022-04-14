@@ -1,0 +1,8 @@
+form input{
+    border: 1px solid #ccc;
+    padding: 0 6px;
+    border-radius: 3px;
+    width: 200px;
+    height: 30px;
+    outline: none;
+}

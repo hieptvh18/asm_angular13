@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const apiUrl = 'http://localhost:3000/products';
+const apiUrl = 'http://localhost:3000/phones';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +10,14 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   // get all()
-  get() {
-    return this.http.get(apiUrl);
+  get(params:string|number) {
+    return this.http.get(apiUrl+params);
   }
-
+  
   // detail
-  show(id: number | string) {
-    return this.http.get(`${apiUrl}/${id}`); //https://localhost:3000/students/1
+  show(id: number | string,params:string) {
+    console.log(`${apiUrl}/${id}`+params);
+    return this.http.get(`${apiUrl}/${id}`+params); //https://localhost:3000/students/1
   }
 
   // create

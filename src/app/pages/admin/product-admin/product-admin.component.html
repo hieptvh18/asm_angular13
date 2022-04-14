@@ -1,0 +1,46 @@
+<div class="container">
+  <h4>List products</h4>
+  <div class="d-flex justify-content-between">
+    <a routerLink="/admin/phones/create" class="btn btn-sm btn-primary mb-2">Create new +</a>
+    <form action="">
+        <input [(ngModel)]="searchText" type="search" name="keyword" placeholder="Enter key search">
+    </form>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Product name</th>
+        <th>Product price</th>
+        <th>Product desc</th>
+        <th>Product image</th>
+        <th>Product status</th>
+        <th>Services</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr *ngFor="let product of products | filter:searchText">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price | number}}</td>
+        <td>{{product.desc}}</td>
+        <td>
+            <img src="{{product.image_url}}" width="70px" alt="">
+        </td>
+        <td> <app-btn-status [status]="product.status"
+            (changeStatus)="parentChangeStatus($event,product)"></app-btn-status>
+        </td>
+        <td>
+            <div class="mb-2">
+                <button class="btn btn-sm btn-outline-danger" (click)="remove(product.id)">Remove</button>
+            </div>
+            <div class="mb-2">
+                <a routerLink="/admin/phones/edit/{{product.id}}" class="btn btn-sm btn-outline-warning">Edit</a>
+            </div>
+            <a class="btn btn-sm btn-outline-info" routerLink="/phones/{{product.id}}">Detail</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

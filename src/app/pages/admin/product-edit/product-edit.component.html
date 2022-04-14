@@ -1,0 +1,38 @@
+<h4>Edit product</h4>
+<form [formGroup]="productForm" class="col-6" (submit)="updateProduct(productForm.value)">
+    <input type="checkbox" value="1" formControlName="status" class="mr-2" id="status">
+    <label for="status">Active</label>
+    <br>
+    <div class="form-group">
+        <label for="">Product name</label>
+        <input type="text"  formControlName="name" class="form-control">
+        <app-show-error [formField]="productForm.get('name')" key="Tieu de"></app-show-error>
+
+    </div>
+    <div class="form-group">
+        <label for="">Product price</label>
+        <input type="number" formControlName="price" class="form-control">
+        <app-show-error [formField]="productForm.get('price')" key="Price is required"></app-show-error>
+
+    </div>
+    <div class="form-group">
+        <label for="">Product description</label>
+        <textarea name="desc" formControlName="desc" class="form-control" id="" cols="30" rows="2">{{product.desc}}}</textarea>
+        <app-show-error [formField]="productForm.get('desc')" key="Description is required"></app-show-error>
+        
+    </div>
+    <div class="form-group">
+        <label for="">Product image</label>
+        <!-- <input type="text" formControlName="image_url" placeholder="enter image url" class="form-control"> -->
+        <input type="file" (change)="upFile($event)" formControlName="image_url" placeholder="enter image url" class="form-control">
+        <p>old image</p>
+        <img src="{{product.image_url}}" width="100px" alt="">
+        <p>new image</p>
+        <img [src]="fileBase64" width="50px" alt="">
+        <app-show-error [formField]="productForm.get('image_url')" key="Image is required"></app-show-error>
+
+    </div>
+   
+    <button type="submit" [disabled]="productForm.invalid"  class="btn btn-warning">Submit</button>
+    <a routerLink="/admin/phones" class="btn btn-outline-info ml-2">Cancel</a>
+</form>

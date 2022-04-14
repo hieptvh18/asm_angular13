@@ -1,17 +1,27 @@
-<small class="bg-light p-2 d-flex justify-content-start">App / Product-page /</small>
+<div class="d-flex justify-content-between container bg-light">
+    <small class="p-2 d-flex justify-content-start">App / Product-page /</small>
+    <small class="p-2">Sort by - 
+
+        <span class="cur-point" (click)="sortPrice(sortValue)" title="sort by price">Price<i class="fa fa-sort" aria-hidden="true"></i>
+        </span>
+    </small>
+</div>
 
 <div class="container">
     <h4 class="text-primary">Product page</h4>
+    <form action="" class="col-4 mb-3">
+        <input (input)="onSearch($event)" class="form-control col-5" type="search" name="keyword" placeholder="Enter key search">
+    </form>
     <div class="row p-2 bg-light mr-3 mb-3">
-            <div class="col-sm-3 mb-4 " *ngFor="let item of products">
+            <div class="col-sm-3 mb-4 " *ngFor="let item of products | filter:searchText">
                 <div class="card p-3">
-                    <a href="/phones/{{item.id}}">
+                    <a routerLink="/phones/{{item.id}}">
                         <img src="{{item.image_url}}" alt="" height="200px" class="card-img-top"></a>
                     <div class="card-body">
-                       <h5> <a href="">
-                            </a>Samsung hihi</h5>
-                       <p class="card-text">300000</p>
-                       <a href="/phones/{{item.id}}" class="btn btn-info">Buy now</a>
+                       <h5> <a routerLink="/phones/{{item.id}}">
+                            </a>{{item.name}}</h5>
+                       <p class="card-text">{{item.price | number}} vnd</p>
+                       <a routerLink="/phones/{{item.id}}" class="btn btn-info">Buy now</a>
                     </div>
                 </div>
             </div>

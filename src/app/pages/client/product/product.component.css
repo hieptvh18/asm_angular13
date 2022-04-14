@@ -1,0 +1,6 @@
+.cur-point{
+    cursor: pointer;
+}
+.cur-point:hover{
+    color: blue;
+}
