@@ -23,7 +23,6 @@ export class ProductDetailComponent implements OnInit {
     this.id = this.routes.snapshot.params['id'];
 
     this.productService.show(this.id,'?status=1').subscribe((data)=>{
-      console.log(data);
       // check data res
          this.productEr = data;
           if(this.productEr.status == 0){

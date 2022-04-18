@@ -40,8 +40,6 @@ export class ProductEditComponent implements OnInit {
 
       this.productService.show(this.id,'?status=1').subscribe((res) => {
 
-        // check res
-
         this.product = res;
         this.productForm.patchValue({
           name:this.product.name,
@@ -51,6 +49,7 @@ export class ProductEditComponent implements OnInit {
           status:this.product.status,
         });
       },
+      // check res
       (er)=>{
         if(er.status == 404){
           this.router.navigate(['/404']);
