@@ -1,5 +1,7 @@
 <div class="text-danger" *ngIf="formField.dirty">
     <p *ngIf="formField.errors?.['required']">{{ key }} is required</p>
     <p *ngIf="formField.errors?.['minlength']">{{ key }} is min 5 charactor</p>
+    <p *ngIf="formField.errors?.['maxlength']">{{ key }} is max 225 charactor</p>
+    <p *ngIf="formField.errors?.['pattern']">{{ key }} is invalid</p>
   </div>
   

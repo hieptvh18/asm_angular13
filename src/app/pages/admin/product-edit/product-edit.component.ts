@@ -23,11 +23,12 @@ export class ProductEditComponent implements OnInit {
     // define form-component
     this.productForm = new FormGroup({
      name: new FormControl('',Validators.required),
-     price: new FormControl('',Validators.required),
+     price: new FormControl('',[Validators.required,Validators.pattern('^[1-9]([0-9]*)$')]),
      image_url: new FormControl('',Validators.required),
      desc: new FormControl('',
      [Validators.minLength(5),
-       Validators.required]),
+       Validators.required,
+      Validators.maxLength(225)]),
      status:new FormControl(0),
    });
  }
@@ -41,6 +42,8 @@ export class ProductEditComponent implements OnInit {
       this.productService.show(this.id,'?status=1').subscribe((res) => {
 
         this.product = res;
+
+        // set values
         this.productForm.patchValue({
           name:this.product.name,
           price:this.product.price,
@@ -49,7 +52,7 @@ export class ProductEditComponent implements OnInit {
           status:this.product.status,
         });
       },
-      // check res
+      // check res 
       (er)=>{
         if(er.status == 404){
           this.router.navigate(['/404']);
@@ -91,6 +94,7 @@ export class ProductEditComponent implements OnInit {
   }
 
 
+  // uploads image_url
   upFile(e:any){
     const file = e.target.files[0];
 

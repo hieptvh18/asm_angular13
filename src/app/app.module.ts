@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 // search module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// jquery ui module
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

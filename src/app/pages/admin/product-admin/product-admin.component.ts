@@ -48,7 +48,6 @@ export class ProductAdminComponent implements OnInit {
 
   // search
   search(key:any){
-    console.log(key)
     this.getList('?name_like='+key.data)
   }
 

@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductCreateComponent implements OnInit {
 
-  // define form
+  // define form&
   productForm:FormGroup;
   fileBase64:any;
   status:number=0;
@@ -19,13 +19,14 @@ export class ProductCreateComponent implements OnInit {
   constructor(private productService:ProductService , private router:Router) { 
 
      // define form-component
-     this.productForm = new FormGroup({
-      name: new FormControl('',Validators.required),
-      price: new FormControl('',Validators.required),
+    this.productForm = new FormGroup({
+      name: new FormControl('',[Validators.required,Validators.maxLength(225)]),
+      price: new FormControl('',[Validators.required,Validators.pattern('^[1-9]([0-9]*)$')]),
       image_url: new FormControl('',Validators.required),
       desc: new FormControl('',
       [Validators.minLength(5),
-        Validators.required]),
+        Validators.required,
+       Validators.maxLength(225)]),
       status:new FormControl(0),
     });
   }
@@ -40,6 +41,9 @@ export class ProductCreateComponent implements OnInit {
     }else{
       this.status = 0;
     }
+
+    // check image_url
+
     this.productService.store({
       ...data,
       image_url:this.fileBase64,
@@ -52,11 +56,15 @@ export class ProductCreateComponent implements OnInit {
 
   upFile(e:any){
     const file = e.target.files[0];
-
     const read = new FileReader();
 
     read.onload = (data)=>{
       this.fileBase64 = data.target?.result;
+    }
+    // validate file size < 2mb
+    if(file.size > 2097152 ){
+      console.log("File size larger than ")
+
     }
     read.readAsDataURL(file);
   }
